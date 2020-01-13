@@ -1,6 +1,7 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm'
 import ToDoList from './components/TodoComponents/TodoList'
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,13 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'Example',
-          id: 12,
-          completed: false
-        }
-      ]
+      todos: []
     }
   }
 
@@ -40,14 +35,26 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
-    this.setState({todos: [this.state.todos, newItem]});
+    this.setState({todos: [...this.state.todos, newItem]});
   };
+
+  removeCompleted = (e) => {
+    e.preventDefault();
+    this.setState({todos: this.state.todos.filter(item => {
+      if(item.completed === false){
+        return item
+      };
+    })})
+  }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoForm addToDo={this.addToDo}/>
+        <ToDoForm 
+        addToDo={this.addToDo}
+        removeCompleted={this.removeCompleted}
+        />
         <ToDoList 
         todos={this.state.todos}
         toggleComplete={this.toggleComplete}

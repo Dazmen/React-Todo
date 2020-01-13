@@ -27,6 +27,7 @@ export default class ToDoForm extends React.Component {
                 onChange={this.changeHandler}
                 />
                 <button>Add a Task!</button>
+                <button onClick={this.props.removeCompleted}>Clear Completed</button>
             </form>
         )
     }
