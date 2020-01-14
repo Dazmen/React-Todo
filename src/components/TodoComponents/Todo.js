@@ -1,15 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
+
 
 const ToDo = (props) => {
 
     return(
-        <div 
+        <TaskCont 
         className={props.item.completed ? "completed" : ""}
         onClick={() => props.toggleComplete(props.item.id)}>
-            <p>{props.item.task}</p>
-        </div>
+            <P>{props.item.task}</P>
+        </TaskCont>
     );
 };
 
 
 export default ToDo
+
+const P = styled.p`
+    text-align: center;
+`;
+const TaskCont = styled.div`
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+`;

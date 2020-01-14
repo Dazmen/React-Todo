@@ -1,7 +1,8 @@
 import React from 'react';
-import ToDoForm from './components/TodoComponents/TodoForm'
-import ToDoList from './components/TodoComponents/TodoList'
-import './components/TodoComponents/Todo.css'
+import ToDoForm from './components/TodoComponents/TodoForm';
+import ToDoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
+import styled from 'styled-components';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -50,7 +51,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <H2>Welcome to your Todo App!</H2>
         <ToDoForm 
         addToDo={this.addToDo}
         removeCompleted={this.removeCompleted}
@@ -65,3 +66,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+const H2 = styled.h2`
+  text-align: center;
+`;
